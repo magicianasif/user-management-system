@@ -54,6 +54,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               name="fullName"
+              data-testid="fullName-input"
               className={`w-full p-3 border rounded-lg transition-colors ${
                 formik.touched.fullName && formik.errors.fullName
                   ? "border-red-500"
@@ -65,7 +66,10 @@ const SignUp: React.FC = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.fullName && formik.errors.fullName && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="fullName-error"
+              >
                 {formik.errors.fullName}
               </div>
             )}
@@ -75,6 +79,7 @@ const SignUp: React.FC = () => {
             <input
               type="text"
               name="username"
+              data-testid="username-input"
               className={`w-full p-3 border rounded-lg transition-colors ${
                 formik.touched.username && formik.errors.username
                   ? "border-red-500"
@@ -86,7 +91,10 @@ const SignUp: React.FC = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.username && formik.errors.username && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="username-error"
+              >
                 {formik.errors.username}
               </div>
             )}
@@ -96,6 +104,7 @@ const SignUp: React.FC = () => {
             <input
               type="email"
               name="email"
+              data-testid="email-input"
               className={`w-full p-3 border rounded-lg transition-colors ${
                 formik.touched.email && formik.errors.email
                   ? "border-red-500"
@@ -107,7 +116,10 @@ const SignUp: React.FC = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.email && formik.errors.email && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="email-error"
+              >
                 {formik.errors.email}
               </div>
             )}
@@ -117,6 +129,7 @@ const SignUp: React.FC = () => {
             <input
               type="password"
               name="password"
+              data-testid="password-input"
               className={`w-full p-3 border rounded-lg transition-colors ${
                 formik.touched.password && formik.errors.password
                   ? "border-red-500"
@@ -128,7 +141,10 @@ const SignUp: React.FC = () => {
               onBlur={formik.handleBlur}
             />
             {formik.touched.password && formik.errors.password && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="password-error"
+              >
                 {formik.errors.password}
               </div>
             )}
@@ -138,6 +154,7 @@ const SignUp: React.FC = () => {
             <input
               type="password"
               name="confirmPassword"
+              data-testid="confirmPassword-input"
               className={`w-full p-3 border rounded-lg transition-colors ${
                 formik.touched.confirmPassword && formik.errors.confirmPassword
                   ? "border-red-500"
@@ -150,7 +167,10 @@ const SignUp: React.FC = () => {
             />
             {formik.touched.confirmPassword &&
               formik.errors.confirmPassword && (
-                <div className="text-red-500 text-sm mt-1">
+                <div
+                  className="text-red-500 text-sm mt-1"
+                  data-testid="confirmPassword-error"
+                >
                   {formik.errors.confirmPassword}
                 </div>
               )}
@@ -164,6 +184,7 @@ const SignUp: React.FC = () => {
           <Link
             href="/sign-in"
             className="text-orange-600 hover:text-orange-500"
+            data-testid="login-link"
           >
             Login
           </Link>
