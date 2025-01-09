@@ -116,7 +116,7 @@ const SignIn: React.FC = () => {
         </form>
 
         <div className="mt-4 text-center" data-testid="signup-link-container">
-          <span className="text-gray-600">Don't have an account? </span>
+          <span className="text-gray-600">Don&apos;t have an account? </span>
           <Link
             href="/sign-up"
             className="text-orange-600 hover:text-orange-500"
