@@ -42,13 +42,22 @@ const SignIn: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-400 flex justify-center items-center">
-      <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm">
-        <h2 className="text-3xl font-semibold text-center text-black-500 mb-6">
+    <div
+      className="min-h-screen bg-gray-400 flex justify-center items-center"
+      data-testid="signin-container"
+    >
+      <div
+        className="bg-white p-8 rounded-lg shadow-xl w-full max-w-sm"
+        data-testid="signin-form-container"
+      >
+        <h2
+          className="text-3xl font-semibold text-center text-black-500 mb-6"
+          data-testid="signin-header"
+        >
           Sign In
         </h2>
 
-        <form onSubmit={formik.handleSubmit}>
+        <form onSubmit={formik.handleSubmit} data-testid="signin-form">
           <div className="mb-4">
             <input
               type="text"
@@ -62,9 +71,13 @@ const SignIn: React.FC = () => {
               value={formik.values.username}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              data-testid="username-input"
             />
             {formik.touched.username && formik.errors.username && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="username-error"
+              >
                 {formik.errors.username}
               </div>
             )}
@@ -83,9 +96,13 @@ const SignIn: React.FC = () => {
               value={formik.values.password}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
+              data-testid="password-input"
             />
             {formik.touched.password && formik.errors.password && (
-              <div className="text-red-500 text-sm mt-1">
+              <div
+                className="text-red-500 text-sm mt-1"
+                data-testid="password-error"
+              >
                 {formik.errors.password}
               </div>
             )}
@@ -94,14 +111,16 @@ const SignIn: React.FC = () => {
           <Button
             label="Login"
             onClick={() => formik.submitForm()}
+            data-testid="signin-button"
           />
         </form>
 
-        <div className="mt-4 text-center">
+        <div className="mt-4 text-center" data-testid="signup-link-container">
           <span className="text-gray-600">Don't have an account? </span>
           <Link
             href="/sign-up"
             className="text-orange-600 hover:text-orange-500"
+            data-testid="signup-link"
           >
             Sign up
           </Link>
