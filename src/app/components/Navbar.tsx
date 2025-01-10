@@ -21,12 +21,14 @@ const Navbar: React.FC = () => {
         User Management
       </h1>
       <div className="flex space-x-4">
+        {/* Logout Icon and Text */}
         <button
           onClick={handleLogout}
-          className="text-white-500 text-2xl hover:text-white-700 transition-colors"
+          className="flex items-center space-x-2 text-white-500 text-2xl hover:text-white-700 transition-colors"
           data-testid="logout-button"
         >
-          <FaSignOutAlt />
+          <FaSignOutAlt size={20} />
+          <span className="font-medium text-lg">Logout</span>
         </button>
       </div>
     </nav>
