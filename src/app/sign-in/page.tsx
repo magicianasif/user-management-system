@@ -18,20 +18,16 @@ const SignIn: React.FC = () => {
       password: "",
     },
     validationSchema: signInValidationSchema,
-    onSubmit: (values) => {
-      const { username, password } = values;
-      const users = JSON.parse(localStorage.getItem("users") || "[]");
+    onSubmit: ({ username, password }) => {
+      const users = JSON.parse(localStorage.getItem("users") ?? "[]");
       const user = users.find(
-        (user: { username: string; password: string }) =>
-          user.username === username && user.password === password
+        (u: { username: string; password: string }) =>
+          u.username === username && u.password === password
       );
 
       if (user) {
         login(username);
         router.push("/dashboard");
-      } else if (username === "admin" && password === "admin") {
-        login("admin");
-        router.push("/admin");
       } else {
         formik.setErrors({
           username: "Invalid credentials",
@@ -110,7 +106,7 @@ const SignIn: React.FC = () => {
 
           <Button
             label="Login"
-            onClick={() => formik.submitForm()}
+            onClick={formik.submitForm}
             data-testid="signin-button"
           />
         </form>
