@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
+import { useRouter } from "next/navigation";
 
 interface User {
   username: string;
@@ -17,11 +24,21 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
+  const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    const savedUser = localStorage.getItem("user");
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+      router.push("/dashboard");
+    }
+  }, []);
+
   const login = (username: string) => {
-    setUser({ username });
-    localStorage.setItem("user", JSON.stringify({ username }));
+    const newUser = { username };
+    setUser(newUser);
+    localStorage.setItem("user", JSON.stringify(newUser));
   };
 
   const logout = () => {
