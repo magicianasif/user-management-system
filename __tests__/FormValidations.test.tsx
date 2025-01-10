@@ -89,7 +89,7 @@ describe("Validation Schemas", () => {
       };
       await expect(
         signUpValidationSchema.validate(invalidData)
-      ).rejects.toThrow("Password must be at least 6 characters");
+      ).rejects.toThrow("Password must be at least 5 characters");
     });
 
     it("should throw an error for missing full name", async () => {

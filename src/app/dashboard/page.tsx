@@ -50,7 +50,7 @@ const Dashboard: React.FC = () => {
           <>
             <h2 className="text-lg mt-4 text-center ml-5">Registered Users:</h2>
             {filteredUsers.length === 0 ? (
-              <p>No users have registered</p>
+              <p className="text-center">No users have registered</p>
             ) : (
               <div className="list-disc pl-6 text-center">
                 {filteredUsers.map((user) => (

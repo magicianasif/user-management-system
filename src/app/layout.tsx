@@ -13,7 +13,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
 const APP_NAME = "User Management System";
 const APP_DEFAULT_TITLE = "User Management System App";
 const APP_TITLE_TEMPLATE = "%s - PWA App";

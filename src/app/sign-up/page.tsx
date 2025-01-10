@@ -26,7 +26,7 @@ const SignUp: React.FC = () => {
       confirmPassword: "",
     },
     validationSchema: signUpValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       const { username, password, email, fullName } = values;
       const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
 
@@ -37,8 +37,9 @@ const SignUp: React.FC = () => {
 
       users.push({ username, password, email, fullName });
       localStorage.setItem("users", JSON.stringify(users));
-
+      resetForm();
       router.push("/");
+
     },
   });
 
@@ -176,8 +177,8 @@ const SignUp: React.FC = () => {
               )}
           </div>
 
-          <Button label="Register" onClick={() => formik.submitForm()} />
-        </form>
+          <Button label="Register" onClick={formik.handleSubmit} />
+          </form>
 
         <div className="mt-4 text-center">
           <span className="text-gray-600">Already have an account? </span>

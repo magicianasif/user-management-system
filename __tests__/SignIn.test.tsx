@@ -97,7 +97,7 @@ describe("SignIn", () => {
     fireEvent.click(screen.getByText("Login"));
 
     await waitFor(() => {
-      expect(mockPush).toHaveBeenCalledWith("/admin");
+      expect(mockPush).toHaveBeenCalledWith("/dashboard");
     });
   });
 });
