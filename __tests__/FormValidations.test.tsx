@@ -104,18 +104,6 @@ describe("Validation Schemas", () => {
       ).rejects.toThrow("Full name is required");
     });
 
-    // it("should throw an error for empty fields", async () => {
-    //   const invalidData = {
-    //     fullName: "",
-    //     username: "",
-    //     email: "",
-    //     password: "",
-    //     confirmPassword: "",
-    //   };
-    //   await expect(
-    //     signUpValidationSchema.validate(invalidData)
-    //   ).rejects.toThrow("Full name is required");
-    // });
 
     it("should throw an error for missing confirmPassword", async () => {
       const invalidData = {
@@ -141,18 +129,5 @@ describe("Validation Schemas", () => {
         signUpValidationSchema.validate(invalidData)
       ).rejects.toThrow("Passwords must match");
     });
-
-    // it("should throw an error for spaces-only in required fields", async () => {
-    //   const invalidData = {
-    //     fullName: "   ",
-    //     username: "   ",
-    //     email: "   ",
-    //     password: "   ",
-    //     confirmPassword: "   ",
-    //   };
-    //   await expect(
-    //     signUpValidationSchema.validate(invalidData)
-    //   ).rejects.toThrow("Full name is required");
-    // });
   });
 });

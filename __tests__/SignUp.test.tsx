@@ -47,35 +47,7 @@ describe("SignUp", () => {
       expect(confirmPasswordError).toBeInTheDocument();
     });
   });
-
-//   it("displays an error if the username already exists", async () => {
-//     const existingUsers = [
-//       {
-//         username: "existingUser",
-//         password: "password123",
-//         email: "test@test.com",
-//         fullName: "Test User",
-//       },
-//     ];
-//     localStorage.setItem("users", JSON.stringify(existingUsers));
   
-//     render(<SignUp />);
-  
-//     fireEvent.change(screen.getByTestId("username-input"), {
-//       target: { value: "existingUser" },
-//     });
-//     fireEvent.change(screen.getByTestId("password-input"), {
-//       target: { value: "password123" },
-//     });
-//     fireEvent.click(screen.getByText("Register"));
-  
-//     await waitFor(() => {
-//       const usernameError = screen.getByTestId("username-error");
-//       expect(usernameError).toHaveTextContent("User already exists!");
-//     });
-//   });
-  
-
   it("registers a new user and redirects to the sign-in page", async () => {
     localStorage.setItem("users", JSON.stringify([]));
 

@@ -27,7 +27,6 @@ const Dashboard: React.FC = () => {
   const users: User[] = JSON.parse(localStorage.getItem("users") || "[]");
 
   const filteredUsers = users.filter((u) => u.username !== user.username);
-  console.log(filteredUsers, "filteredUsers");
 
   const capitalizedUsername =
     user.username.charAt(0).toUpperCase() + user.username.slice(1);
